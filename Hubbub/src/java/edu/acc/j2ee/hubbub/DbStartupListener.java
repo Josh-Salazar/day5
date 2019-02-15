@@ -26,8 +26,8 @@ public class DbStartupListener implements ServletContextListener {
             sce.getServletContext().setAttribute("userDao", userDao);
             PostDao postDao = new PostDaoDbImpl(conn, userDao);
             sce.getServletContext().setAttribute("postDao", postDao);
-            //ProfileDao profileDao = new ProfileDaoDbImpl(conn, userDao);
-            //sce.getServletContext().setAttribute("profileDao", profileDao);
+            ProfileDao profileDao = new ProfileDaoDbImpl(conn, userDao);
+            sce.getServletContext().setAttribute("profileDao", profileDao);
         }
         catch (SQLException sqle) {
             throw new DaoException(sqle);
